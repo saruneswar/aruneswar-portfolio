@@ -7,6 +7,7 @@ import { Trophy, Medal, Calendar, Building2, ExternalLink, Download } from "luci
 import { useState } from "react";
 import { Badge } from "./Badge";
 import { DocumentViewer } from "./DocumentViewer";
+import { PremiumGallery } from "./PremiumGallery";
 
 interface AchievementCardProps {
   achievement: Achievement;
@@ -25,26 +26,31 @@ export const AchievementCard = ({ achievement, index }: AchievementCardProps) =>
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
-      className="group flex flex-col md:flex-row gap-6 md:gap-8 rounded-3xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg p-6 md:p-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 hover:-translate-y-0.5 transition-all duration-300 relative"
+      className="group flex flex-col lg:flex-row gap-6 lg:gap-8 rounded-3xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg p-6 md:p-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 hover:-translate-y-0.5 transition-all duration-300 relative"
     >
       {/* Glow effect behind the card */}
       <div className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/5 to-accent/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
       {achievement.image && (
-        <div className={`relative w-full md:w-1/3 ${frame} rounded-2xl overflow-hidden border border-muted-foreground/20 flex-shrink-0 bg-muted/30`}>
-          <Image 
-            src={achievement.image} 
-            alt={achievement.title} 
-            fill 
-            className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-            onLoad={(e) => {
-              const target = e.target as HTMLImageElement;
-              if (target.naturalHeight > target.naturalWidth) setFrame("aspect-[3/4]");
-              else if (target.naturalHeight === target.naturalWidth) setFrame("aspect-square");
-              else setFrame("aspect-video");
-            }}
-          />
-        </div>
+        <>
+          <div className="block lg:hidden w-full -mt-2">
+            <PremiumGallery images={[achievement.image]} />
+          </div>
+          <div className={`hidden lg:block relative w-full lg:w-1/3 ${frame} rounded-2xl overflow-hidden border border-muted-foreground/20 flex-shrink-0 bg-muted/30`}>
+            <Image 
+              src={achievement.image} 
+              alt={achievement.title} 
+              fill 
+              className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              onLoad={(e) => {
+                const target = e.target as HTMLImageElement;
+                if (target.naturalHeight > target.naturalWidth) setFrame("aspect-[3/4]");
+                else if (target.naturalHeight === target.naturalWidth) setFrame("aspect-square");
+                else setFrame("aspect-video");
+              }}
+            />
+          </div>
+        </>
       )}
 
       <div className="flex flex-col flex-1 justify-center z-10">
