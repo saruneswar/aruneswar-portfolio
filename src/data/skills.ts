@@ -29,7 +29,7 @@ export const skillsData: SkillCategory[] = [
   {
     title: "Embedded Systems",
     icon: "Cpu",
-    skills: ["ESP32", "Arduino", "STM32 (Learning)", "Sensors", "LoRa", "RS485", "Modbus RTU", "IoT"],
+    skills: ["ESP32", "Arduino", "STM32", "Sensors", "LoRa", "RS485", "Modbus RTU", "IoT"],
   },
   {
     title: "Programming",

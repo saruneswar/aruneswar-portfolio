@@ -102,14 +102,11 @@ export const ResumePreview = () => {
         </div>
 
         <div className="flex flex-wrap gap-4">
-          
-          <Button 
-            variant="outline" 
-            onClick={() => setIsModalOpen(true)}
-            className="gap-2 px-6 h-12 bg-transparent border-white/5 text-foreground shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] hover:bg-transparent hover:border-white/10 hover:text-accent transition-all duration-300"
-          >
-            <ExternalLink size={18} />
-            <span className="font-semibold tracking-wide">View Resume</span>
+          <Button asChild className="gap-2 px-6 h-12">
+            <a href={resumeData.pdfUrl} download aria-label="Download Resume">
+              <Download size={18} />
+              <span className="font-semibold tracking-wide">Download Resume</span>
+            </a>
           </Button>
         </div>
       </motion.div>
