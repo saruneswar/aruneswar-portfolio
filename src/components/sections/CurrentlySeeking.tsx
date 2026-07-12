@@ -9,7 +9,7 @@ import { Badge } from "../ui/Badge";
 
 export const CurrentlySeeking = () => {
   return (
-    <Section className="py-16 md:py-24 bg-muted/10 relative overflow-hidden">
+    <Section className="py-20 md:py-24 bg-muted/10 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-accent/5 rounded-full blur-[100px] pointer-events-none z-0"></div>
 

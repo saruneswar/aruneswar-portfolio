@@ -81,7 +81,7 @@ export const AchievementCard = ({ achievement, index }: AchievementCardProps) =>
           <div className="flex flex-wrap items-center gap-4 mt-auto pt-2">
             <button
               onClick={() => setIsCertificateOpen(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-muted/10 hover:bg-accent/5 text-muted-foreground hover:text-accent rounded-full text-sm font-semibold transition-colors duration-300 border border-white/5 hover:border-white/10"
+              className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] md:min-h-0 bg-muted/10 hover:bg-accent/5 text-muted-foreground hover:text-accent rounded-full text-sm font-semibold transition-colors duration-300 border border-white/5 hover:border-white/10"
             >
               <ExternalLink size={16} />
               View Certificate
@@ -89,7 +89,7 @@ export const AchievementCard = ({ achievement, index }: AchievementCardProps) =>
             <a
               href={achievement.certificate}
               download
-              className="inline-flex items-center gap-2 px-4 py-2 bg-muted hover:bg-muted/80 text-foreground rounded-full text-sm font-medium transition-colors duration-300 border border-muted-foreground/20"
+              className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] md:min-h-0 bg-muted hover:bg-muted/80 text-foreground rounded-full text-sm font-medium transition-colors duration-300 border border-muted-foreground/20"
             >
               <Download size={16} />
               Download Certificate

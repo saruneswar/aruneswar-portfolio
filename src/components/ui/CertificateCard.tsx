@@ -37,7 +37,7 @@ export const CertificateCard = ({ certificate }: CertificateCardProps) => {
         )}
         {certificate.image && <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] pointer-events-none" />}
       </div>
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-6 md:p-8">
         <h3 className="text-lg font-bold leading-tight text-foreground">{certificate.title}</h3>
         <p className="mt-1 text-sm text-muted-foreground">{certificate.issuer}</p>
         <p className="text-xs text-muted-foreground/70 mt-1">{certificate.date}</p>

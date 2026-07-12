@@ -8,7 +8,7 @@ import { highlightsData } from "@/data/profile";
 
 export const EngineeringHighlights = () => {
   return (
-    <Section className="py-12 md:py-16 bg-background relative z-20">
+    <Section className="py-20 md:py-16 bg-background relative z-20">
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlightsData.map((stat, index) => (
