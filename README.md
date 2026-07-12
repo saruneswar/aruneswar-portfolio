@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aruneswar S | Engineering Portfolio
 
-## Getting Started
+Welcome to the open-source repository for my professional engineering portfolio. This website serves as a comprehensive digital resume, showcasing my expertise in **Electrical Engineering, Power Systems, Industrial Automation, and Hardware Development**.
 
-First, run the development server:
+> 🌐 **Live Website:** [aruneswars.com](https://YOUR-LIVE-DOMAIN.vercel.app) *(Replace with your live domain)*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 📖 About
+
+This portfolio is a premium, high-performance web application designed to document my academic background, technical proficiencies, and hands-on engineering projects. It is built mobile-first, ensuring an immersive and robust experience across all devices, from ultra-wide desktops to folding smartphones.
+
+## ✨ Features
+
+- **Dynamic Project Case Studies:** Deep-dive case studies for major hardware and automation projects.
+- **Smart Navigation:** Intelligent scroll-restoration routing and hardware-accelerated Framer Motion page transitions.
+- **Interactive Document Viewers:** Built-in lock-body modals for high-resolution PDF resume and certificate viewing.
+- **Professional Galleries:** Highly optimized image grids and inline video playback for hardware demonstrations.
+- **Performance Optimized:** Strict Next.js `<Image>` optimizations, reducing layout shifts (CLS) and optimizing Largest Contentful Paint (LCP).
+- **Fully Responsive & Accessible:** Engineered for all viewports, with robust cross-browser CSS fallbacks, safe-area constraints, and keyboard navigation support.
+
+## 🛠️ Tech Stack
+
+This project leverages modern frontend technologies for maximum speed and developer experience:
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Library:** [React](https://react.dev/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Deployment:** [Vercel](https://vercel.com/)
+
+## 📂 Project Structure
+
+```text
+src/
+├── app/               # Next.js App Router (pages, layout, global styles)
+├── components/        
+│   ├── sections/      # Major page sections (Hero, Projects, Resume, etc.)
+│   └── ui/            # Reusable UI components (Buttons, Cards, Modals)
+├── data/              # TypeScript data files (skills, projects, resume data)
+├── types/             # TypeScript interface definitions
+└── lib/               # Utility functions
+public/                # Static assets (images, pdfs, videos, icons)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Local Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To run this project locally, follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/saruneswar/aruneswar-portfolio.git
+   cd aruneswar-portfolio
+   ```
 
-## Learn More
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Open in browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌍 Deployment
 
-## Deploy on Vercel
+This project is optimized for deployment on [Vercel](https://vercel.com). The deployment process is fully automated via GitHub integration, generating static pages (SSG) for maximum performance.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 Changelog
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All notable changes, bug fixes, and feature additions across versions are documented in the [CHANGELOG.md](./CHANGELOG.md).
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+## 📬 Contact
+
+**Aruneswar S**  
+Electrical & Electronics Engineer  
+- [LinkedIn Profile](https://www.linkedin.com/) *(Add link)*
+- [GitHub Profile](https://github.com/saruneswar)
