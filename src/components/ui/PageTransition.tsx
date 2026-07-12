@@ -11,11 +11,19 @@ export const PageTransition = ({ children }: { children: React.ReactNode }) => {
   
   // Track scroll positions for specific paths to fix mode="wait" scroll jumps
   const scrollPositions = useRef<{ [key: string]: number }>({});
+  // Track path history to know which case study we came from
+  const pathHistory = useRef<string[]>([pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
       scrollPositions.current[pathname] = window.scrollY;
     };
+    
+    // Update path history
+    if (pathHistory.current[pathHistory.current.length - 1] !== pathname) {
+      pathHistory.current = [...pathHistory.current, pathname].slice(-2);
+    }
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
@@ -29,6 +37,32 @@ export const PageTransition = ({ children }: { children: React.ReactNode }) => {
 
     // Back Navigation: Restore previous scroll position on Home page
     const savedScroll = scrollPositions.current[pathname];
+    const previousPath = pathHistory.current[0];
+
+    // If we came back from a specific project, scroll exactly to that card
+    if (pathname === "/" && previousPath?.startsWith("/projects/")) {
+      const slug = previousPath.split("/projects/")[1];
+      
+      // First, instantly restore to the approximate saved general position to avoid flashing the top of the page
+      if (savedScroll !== undefined) {
+        window.scrollTo({ top: savedScroll, behavior: "instant" });
+      }
+
+      // Then smoothly scroll directly to the exact Project Card
+      setTimeout(() => {
+        const projectCard = document.getElementById(`project-${slug}`);
+        if (projectCard) {
+          const rect = projectCard.getBoundingClientRect();
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          // Position it 25% from the top of the viewport
+          const targetY = rect.top + scrollTop - (window.innerHeight * 0.25);
+          window.scrollTo({ top: targetY, behavior: "smooth" });
+        }
+      }, 50);
+      return;
+    }
+
+    // Standard Fallback: Restore previous scroll position
     if (savedScroll !== undefined) {
       setTimeout(() => {
         window.scrollTo({ top: savedScroll, behavior: "instant" });
