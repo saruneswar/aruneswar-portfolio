@@ -47,10 +47,14 @@ export const PremiumGallery = ({ images }: PremiumGalleryProps) => {
       {/* Mobile Grid (2 columns) */}
       <div className="grid md:hidden grid-cols-2 gap-3 items-start">
         <div className="flex flex-col gap-3">
-          {images.filter((_, i) => i % 2 === 0).map((src, i) => renderItem(src, i * 2))}
+          {images.length === 3 
+            ? [images[0]].map((src, i) => renderItem(src, 0))
+            : images.filter((_, i) => i % 2 === 0).map((src, i) => renderItem(src, i * 2))}
         </div>
         <div className="flex flex-col gap-3">
-          {images.filter((_, i) => i % 2 === 1).map((src, i) => renderItem(src, i * 2 + 1))}
+          {images.length === 3
+            ? [images[1], images[2]].map((src, i) => renderItem(src, i + 1))
+            : images.filter((_, i) => i % 2 === 1).map((src, i) => renderItem(src, i * 2 + 1))}
         </div>
       </div>
 
