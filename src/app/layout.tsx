@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
+import { PageTransition } from "@/components/ui/PageTransition";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -46,7 +47,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground overflow-x-hidden">
         <Navbar />
-        {children}
+        <PageTransition>
+          {children}
+        </PageTransition>
       </body>
     </html>
   );
