@@ -122,6 +122,7 @@ export const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
                       src={img} 
                       alt="Internship documentation" 
                       fill 
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="hover:scale-105 transition-transform duration-700 object-cover object-top"
                       onLoad={(e) => {
                         const target = e.target as HTMLImageElement;

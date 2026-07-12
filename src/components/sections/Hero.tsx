@@ -81,12 +81,6 @@ export const Hero = () => {
                   Download Resume
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto font-semibold gap-2">
-                <Link href="#projects" aria-label="View Projects">
-                  View Projects
-                  <ArrowRight size={18} />
-                </Link>
-              </Button>
             </motion.div>
 
             <motion.div 

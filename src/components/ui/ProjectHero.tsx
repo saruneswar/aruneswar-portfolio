@@ -30,6 +30,7 @@ export const ProjectHero = ({ project }: ProjectHeroProps) => {
           src={project.coverImage}
           alt={project.title}
           fill
+          sizes="100vw"
           className="object-cover object-top opacity-20 blur-sm scale-105"
           priority
         />

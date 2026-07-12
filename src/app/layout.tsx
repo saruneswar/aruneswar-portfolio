@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${roboto.variable} h-full antialiased dark`}
+      className={`${inter.variable} ${roboto.variable} h-full antialiased dark scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground overflow-x-hidden">
         <Navbar />
