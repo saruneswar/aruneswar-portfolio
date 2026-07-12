@@ -43,10 +43,9 @@ export const ProjectGallery = ({ images }: ProjectGalleryProps) => {
               transition={{ duration: 0.5 }}
               style={{
                 flexGrow: r0 * 100,
-                flexBasis: `${r0 * 400}px`,
                 aspectRatio: r0,
               }}
-              className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full"
+              className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full basis-auto md:basis-0"
             >
               {images[0].endsWith('.mp4') ? (
                 <video src={images[0]} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" />
@@ -64,9 +63,8 @@ export const ProjectGallery = ({ images }: ProjectGalleryProps) => {
               transition={{ duration: 0.5, delay: 0.1 }}
               style={{
                 flexGrow: rightCombinedRatio * 100,
-                flexBasis: `${rightCombinedRatio * 400}px`,
               }}
-              className="flex flex-col gap-4 lg:gap-6 w-full"
+              className="flex flex-col gap-4 lg:gap-6 w-full basis-auto md:basis-0"
             >
               {/* Top Landscape */}
               <div 
@@ -128,8 +126,8 @@ export const ProjectGallery = ({ images }: ProjectGalleryProps) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                style={{ flexGrow: r1 * 100, flexBasis: `${r1 * 200}px`, aspectRatio: r1 }}
-                className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full"
+                style={{ flexGrow: r1 * 100, aspectRatio: r1 }}
+                className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full basis-auto md:basis-0"
               >
                 {images[1].endsWith('.mp4') ? (
                   <video src={images[1]} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" />
@@ -145,8 +143,8 @@ export const ProjectGallery = ({ images }: ProjectGalleryProps) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                style={{ flexGrow: r2 * 100, flexBasis: `${r2 * 200}px`, aspectRatio: r2 }}
-                className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full"
+                style={{ flexGrow: r2 * 100, aspectRatio: r2 }}
+                className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full basis-auto md:basis-0"
               >
                 {images[2].endsWith('.mp4') ? (
                   <video src={images[2]} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" />
@@ -165,8 +163,8 @@ export const ProjectGallery = ({ images }: ProjectGalleryProps) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                style={{ flexGrow: r3 * 100, flexBasis: `${r3 * 200}px`, aspectRatio: r3 }}
-                className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full"
+                style={{ flexGrow: r3 * 100, aspectRatio: r3 }}
+                className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full basis-auto md:basis-0"
               >
                 {images[3].endsWith('.mp4') ? (
                   <video src={images[3]} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" />
@@ -182,8 +180,8 @@ export const ProjectGallery = ({ images }: ProjectGalleryProps) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                style={{ flexGrow: r4 * 100, flexBasis: `${r4 * 200}px`, aspectRatio: r4 }}
-                className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full"
+                style={{ flexGrow: r4 * 100, aspectRatio: r4 }}
+                className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full basis-auto md:basis-0"
               >
                 {images[4].endsWith('.mp4') ? (
                   <video src={images[4]} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" />

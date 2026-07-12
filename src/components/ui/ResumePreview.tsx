@@ -144,6 +144,11 @@ export const ResumePreview = () => {
             <p className="text-white font-medium tracking-wide shadow-sm">Click to Enlarge</p>
           </div>
         </div>
+        
+        {/* Mobile Tap Hint */}
+        <div className="md:hidden text-center mt-4 text-[11px] text-muted-foreground font-bold uppercase tracking-widest flex items-center justify-center gap-1.5 opacity-80">
+          <Search size={12} /> Tap document to enlarge
+        </div>
       </motion.div>
 
       {/* Fullscreen Modal */}

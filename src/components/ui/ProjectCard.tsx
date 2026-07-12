@@ -70,7 +70,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
       <div className="flex flex-col flex-1 p-6 md:p-8 relative">
         <Link 
           href={`/projects/${project.slug}`}
-          className="absolute top-0 right-8 -translate-y-1/2 p-3 rounded-full bg-accent text-primary-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_4px_10px_rgba(0,0,0,0.15)] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:-translate-y-1/2 z-10"
+          className="absolute top-0 right-8 -translate-y-1/2 p-3 rounded-full bg-accent text-primary-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_4px_10px_rgba(0,0,0,0.15)] opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-1/2 md:translate-y-4 group-hover:-translate-y-1/2 z-10"
           aria-label={`View details for ${project.title}`}
         >
           <ArrowRight size={20} strokeWidth={2.5} />

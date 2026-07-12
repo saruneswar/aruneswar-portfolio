@@ -32,9 +32,10 @@ export const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
       </div>
 
       <div className="w-full md:w-[calc(75%-40px)] md:text-left">
-        <div className="rounded-3xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg p-6 md:p-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 hover:-translate-y-0.5 transition-all duration-300">
+        <div className="flex flex-col rounded-3xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg p-6 md:p-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 hover:-translate-y-0.5 transition-all duration-300">
           
-          <div className="flex flex-wrap items-center gap-4 mb-5 text-sm text-muted-foreground font-medium">
+          <div className="order-2 md:order-1 flex flex-col w-full">
+            <div className="flex flex-wrap items-center gap-4 mb-5 text-sm text-muted-foreground font-medium">
             <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-accent/10 text-accent border border-accent shadow-sm">
               <Calendar size={14} />
               {experience.startDate} — {experience.endDate}
@@ -88,9 +89,10 @@ export const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
               </ul>
             </div>
           )}
+          </div>
 
           {gallerySlice.length > 0 && (
-            <div className={`mt-10 mx-auto w-fit max-w-full grid gap-4 md:gap-5 ${
+            <div className={`order-1 md:order-2 mb-8 md:mb-0 md:mt-10 mx-auto w-full md:w-fit max-w-full grid gap-4 md:gap-5 ${
               isSingle 
                 ? 'grid-cols-1' 
                 : 'grid-cols-1 sm:grid-cols-2'
