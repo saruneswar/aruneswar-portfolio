@@ -46,29 +46,12 @@ export const PremiumGallery = ({ images }: PremiumGalleryProps) => {
     <div className="w-full block lg:hidden my-8">
       {/* Mobile Grid (2 columns) */}
       <div className="grid md:hidden grid-cols-2 gap-3 items-start">
-        <div className="flex flex-col gap-3">
-          {images.length === 3 
-            ? [images[0]].map((src, i) => renderItem(src, 0))
-            : images.filter((_, i) => i % 2 === 0).map((src, i) => renderItem(src, i * 2))}
-        </div>
-        <div className="flex flex-col gap-3">
-          {images.length === 3
-            ? [images[1], images[2]].map((src, i) => renderItem(src, i + 1))
-            : images.filter((_, i) => i % 2 === 1).map((src, i) => renderItem(src, i * 2 + 1))}
-        </div>
+        {images.map((src, i) => renderItem(src, i))}
       </div>
 
       {/* Tablet Grid (3 columns) */}
       <div className="hidden md:grid grid-cols-3 gap-4 items-start">
-        <div className="flex flex-col gap-4">
-          {images.filter((_, i) => i % 3 === 0).map((src, i) => renderItem(src, i * 3))}
-        </div>
-        <div className="flex flex-col gap-4">
-          {images.filter((_, i) => i % 3 === 1).map((src, i) => renderItem(src, i * 3 + 1))}
-        </div>
-        <div className="flex flex-col gap-4">
-          {images.filter((_, i) => i % 3 === 2).map((src, i) => renderItem(src, i * 3 + 2))}
-        </div>
+        {images.map((src, i) => renderItem(src, i))}
       </div>
     </div>
   );
