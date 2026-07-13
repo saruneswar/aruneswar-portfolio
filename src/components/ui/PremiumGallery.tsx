@@ -45,13 +45,26 @@ export const PremiumGallery = ({ images }: PremiumGalleryProps) => {
   return (
     <div className="w-full block lg:hidden my-8">
       {/* Mobile Grid (2 columns) */}
-      <div className="grid md:hidden grid-cols-2 gap-3 items-start">
-        {images.map((src, i) => renderItem(src, i))}
+      <div className="flex md:hidden gap-3 items-start">
+        <div className="flex flex-col gap-3 w-1/2">
+          {images.map((src, i) => (i % 2 === 0 ? renderItem(src, i) : null))}
+        </div>
+        <div className="flex flex-col gap-3 w-1/2">
+          {images.map((src, i) => (i % 2 === 1 ? renderItem(src, i) : null))}
+        </div>
       </div>
 
       {/* Tablet Grid (3 columns) */}
-      <div className="hidden md:grid grid-cols-3 gap-4 items-start">
-        {images.map((src, i) => renderItem(src, i))}
+      <div className="hidden md:flex gap-4 items-start">
+        <div className="flex flex-col gap-4 w-1/3">
+          {images.map((src, i) => (i % 3 === 0 ? renderItem(src, i) : null))}
+        </div>
+        <div className="flex flex-col gap-4 w-1/3">
+          {images.map((src, i) => (i % 3 === 1 ? renderItem(src, i) : null))}
+        </div>
+        <div className="flex flex-col gap-4 w-1/3">
+          {images.map((src, i) => (i % 3 === 2 ? renderItem(src, i) : null))}
+        </div>
       </div>
     </div>
   );
