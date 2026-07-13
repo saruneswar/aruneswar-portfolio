@@ -37,6 +37,83 @@ export const ProjectGallery = ({ images }: ProjectGalleryProps) => {
 };
 
 const DesktopGallery = ({ images }: { images: string[] }) => {
+  // Detect 3-image Bento layout (1 Portrait, 2 Landscapes)
+  if (images.length === 3) {
+    const r0 = ASPECT_RATIOS[images[0]] || 0.75;
+    const r1 = ASPECT_RATIOS[images[1]] || 1.333;
+    const r2 = ASPECT_RATIOS[images[2]] || 1.333;
+
+    if (r0 < 1 && r1 >= 1 && r2 >= 1) {
+      const rightCombinedRatio = 1 / ((1 / r1) + (1 / r2));
+
+      return (
+        <div className="my-20 w-[92%] md:w-[80%] mx-auto">
+          <h3 className="text-2xl font-bold text-foreground mb-10 text-center">Project Gallery</h3>
+          <div className="flex flex-col md:flex-row gap-4 lg:gap-6">
+            
+            {/* LEFT PORTRAIT */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              style={{
+                flexGrow: r0 * 100,
+                aspectRatio: r0,
+              }}
+              className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full basis-auto md:basis-0"
+            >
+              {images[0].endsWith('.mp4') ? (
+                <video src={images[0]} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" />
+              ) : (
+                <img src={images[0]} alt="Gallery Portrait" loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" />
+              )}
+              <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] pointer-events-none rounded-2xl" />
+            </motion.div>
+
+            {/* RIGHT STACKED LANDSCAPES */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              style={{
+                flexGrow: rightCombinedRatio * 100,
+              }}
+              className="flex flex-col gap-4 lg:gap-6 w-full basis-auto md:basis-0"
+            >
+              {/* Top Landscape */}
+              <div 
+                style={{ flexGrow: (1 / r1) * 100, aspectRatio: r1 }} 
+                className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full"
+              >
+                {images[1].endsWith('.mp4') ? (
+                  <video src={images[1]} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" />
+                ) : (
+                  <img src={images[1]} alt="Gallery Landscape 1" loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" />
+                )}
+                <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] pointer-events-none rounded-2xl" />
+              </div>
+
+              {/* Bottom Landscape */}
+              <div 
+                style={{ flexGrow: (1 / r2) * 100, aspectRatio: r2 }} 
+                className="relative rounded-2xl overflow-hidden border border-white/5 bg-muted/10 backdrop-blur-lg shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_4px_16px_rgba(0,0,0,0.08)] hover:border-white/10 transition-all duration-300 group w-full"
+              >
+                {images[2].endsWith('.mp4') ? (
+                  <video src={images[2]} autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" />
+                ) : (
+                  <img src={images[2]} alt="Gallery Landscape 2" loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700" />
+                )}
+                <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] pointer-events-none rounded-2xl" />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      );
+    }
+  }
+
   // Detect 5-image bespoke editorial layout (e.g., Prosthetic Arm: 3 Landscapes, 2 Portraits)
   if (images.length === 5) {
     const r0 = ASPECT_RATIOS[images[0]] || 1.333; // Hero (Prototype)

@@ -17,6 +17,7 @@ export const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
 
   const gallerySlice = experience.gallery?.slice(0, 3) || [];
   const isSingle = gallerySlice.length === 1;
+  const isThreeImages = gallerySlice.length === 3;
 
   return (
     <motion.div
@@ -111,6 +112,10 @@ export const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
                       isSingle 
                         ? 'w-full sm:w-[480px] md:w-[560px]' 
                         : 'w-full sm:w-[280px] md:w-[360px]'
+                    } ${
+                      isThreeImages && i === 0 
+                        ? 'sm:row-span-2 sm:h-full' 
+                        : ''
                     } max-w-full mx-auto`}
                   >
                     <Image 

@@ -45,25 +45,29 @@ export const PremiumGallery = ({ images }: PremiumGalleryProps) => {
   return (
     <div className="w-full block lg:hidden my-8">
       {/* Mobile Grid (2 columns) */}
-      <div className="flex md:hidden gap-3 items-start">
-        <div className="flex flex-col gap-3 w-1/2">
-          {images.map((src, i) => (i % 2 === 0 ? renderItem(src, i) : null))}
+      <div className="grid md:hidden grid-cols-2 gap-3 items-start">
+        <div className="flex flex-col gap-3">
+          {images.length === 3 
+            ? [images[0]].map((src, i) => renderItem(src, 0))
+            : images.filter((_, i) => i % 2 === 0).map((src, i) => renderItem(src, i * 2))}
         </div>
-        <div className="flex flex-col gap-3 w-1/2">
-          {images.map((src, i) => (i % 2 === 1 ? renderItem(src, i) : null))}
+        <div className="flex flex-col gap-3">
+          {images.length === 3
+            ? [images[1], images[2]].map((src, i) => renderItem(src, i + 1))
+            : images.filter((_, i) => i % 2 === 1).map((src, i) => renderItem(src, i * 2 + 1))}
         </div>
       </div>
 
       {/* Tablet Grid (3 columns) */}
-      <div className="hidden md:flex gap-4 items-start">
-        <div className="flex flex-col gap-4 w-1/3">
-          {images.map((src, i) => (i % 3 === 0 ? renderItem(src, i) : null))}
+      <div className="hidden md:grid grid-cols-3 gap-4 items-start">
+        <div className="flex flex-col gap-4">
+          {images.filter((_, i) => i % 3 === 0).map((src, i) => renderItem(src, i * 3))}
         </div>
-        <div className="flex flex-col gap-4 w-1/3">
-          {images.map((src, i) => (i % 3 === 1 ? renderItem(src, i) : null))}
+        <div className="flex flex-col gap-4">
+          {images.filter((_, i) => i % 3 === 1).map((src, i) => renderItem(src, i * 3 + 1))}
         </div>
-        <div className="flex flex-col gap-4 w-1/3">
-          {images.map((src, i) => (i % 3 === 2 ? renderItem(src, i) : null))}
+        <div className="flex flex-col gap-4">
+          {images.filter((_, i) => i % 3 === 2).map((src, i) => renderItem(src, i * 3 + 2))}
         </div>
       </div>
     </div>
